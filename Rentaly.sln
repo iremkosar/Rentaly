@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentaly.EntityLayer", "Rentaly.EntityLayer\Rentaly.EntityLayer.csproj", "{E2546C87-9319-4AAE-AD18-11E06D6FA3C5}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentaly.BusinessLayer", "Rentaly.BusinessLayer\Rentaly.BusinessLayer.csproj", "{CFD39B94-2881-4CB0-8F88-B11EC43440FF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentaly.WebUI", "Rentaly.WebUI\Rentaly.WebUI.csproj", "{01DF3398-B5F5-4316-A9CA-304193E0882D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentaly.DtoLayer", "Rentaly.DtoLayer\Rentaly.DtoLayer.csproj", "{A3888131-53A0-4318-ACA9-4D94610C1140}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{01DF3398-B5F5-4316-A9CA-304193E0882D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01DF3398-B5F5-4316-A9CA-304193E0882D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01DF3398-B5F5-4316-A9CA-304193E0882D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3888131-53A0-4318-ACA9-4D94610C1140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3888131-53A0-4318-ACA9-4D94610C1140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3888131-53A0-4318-ACA9-4D94610C1140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3888131-53A0-4318-ACA9-4D94610C1140}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
