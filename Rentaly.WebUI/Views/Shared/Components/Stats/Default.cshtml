@@ -1,0 +1,26 @@
+﻿@model List<Statistic>
+<section class="text-light jarallax">
+    <img src="~/rentaly/images/background/2.jpg" class="jarallax-img" alt="">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInRight">
+                <h2>Müşterilerimize her tercih için geniş bir <span class="id-color">ticari araç</span> ve <span class="id-color">lüks araç</span> yelpazesi sunuyoruz.</h2>
+            </div>
+            <div class="col-lg-6 wow fadeInLeft">
+                Araç kiralama ajansımızda, herkesin bütçesine bakılmaksızın güvenilir ve konforlu bir araç sürmenin keyfini yaşamayı hak ettiğine inanıyoruz. Şık sedanlardan geniş SUV'lara kadar uzanan, iyi bakımlı ve rekabetçi fiyatlı çeşitli bir araç filomuz bulunmaktadır. Kolaylaştırılmış kiralama sürecimiz sayesinde istediğiniz aracı hızlı ve pratik bir şekilde rezerve edebilirsiniz. İster iş seyahati, ister aile tatili, isterse hafta sonu kaçamağı olsun, programınıza uygun esnek kiralama seçeneklerimizle yanınızdayız.
+            </div>
+        </div>
+        <div class="spacer-double"></div>
+        <div class="row text-center">
+            @foreach(var item in Model)
+            {                         
+            <div class="col-md-3 col-sm-6 mb-sm-30">
+                <div class="de_count transparent text-light wow fadeInUp">
+                        <h3 class="timer" data-to="@item.Count" data-speed="3000">@item.Count</h3>
+                   @item.Title
+                </div>
+            </div>           
+            }
+        </div>
+    </div>
+</section>

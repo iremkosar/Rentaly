@@ -4,7 +4,7 @@ using Rentaly.EntityLayer.Entities;
 
 namespace Rentaly.DataAccessLayer.Concrete
 {
-    public class RentalyContext:DbContext
+    public class RentalyContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -17,6 +17,11 @@ namespace Rentaly.DataAccessLayer.Concrete
         public DbSet<CarModel> CarModels { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Rental> Rentals { get; set; } 
+        public DbSet<Rental> Rentals { get; set; }
+        public DbSet<Feature> Features { get; set; }
+        public DbSet<Adventure> Adventures { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Statistic> Statistics { get; set; }
     }
 }
+

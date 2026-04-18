@@ -24,6 +24,18 @@ builder.Services.AddScoped<IBrandDal, EfBrandDal>();
 builder.Services.AddScoped<ICustomerService, CustomerManager>();
 builder.Services.AddScoped<ICustomerDal,EfCustomerDal>();
 
+builder.Services.AddScoped<IFeatureService, FeatureManager>();
+builder.Services.AddScoped<IFeatureDal,EfFeatureDal>();
+
+builder.Services.AddScoped<IAdventureService,AdventureManager>();
+builder.Services.AddScoped<IAdventureDal,EfAdventureDal>();
+
+builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+
+builder.Services.AddScoped<IStatisticService, StatisticManager>();
+builder.Services.AddScoped<IStatisticDal, EfStatisticDal>();
+
 builder.Services.AddDbContext<RentalyContext>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

@@ -1,0 +1,54 @@
+﻿@model List<Feature>
+
+@{
+    var leftItems = Model.Take(2).ToList();
+    var rightItems = Model.Skip(2).Take(2).ToList();
+    var featureSection = Model.FirstOrDefault();
+}
+
+<section aria-label="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <h2>@featureSection.SectionTitle</h2>
+                <p>@featureSection.SectionDescription</p>
+                <div class="spacer-20"></div>
+            </div>
+            <div class="clearfix"></div>
+
+            <!-- Sol 2 kart -->
+            <div class="col-lg-3">
+                @foreach (var item in leftItems)
+                {
+                    <div class="box-icon s2 p-small mb20 wow fadeInRight">
+                        <i class="fa bg-color @item.Icon"></i>
+                        <div class="d-inner">
+                            <h4>@item.Title</h4>
+                            @item.Description
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <!-- Orta resim -->
+            <div class="col-lg-6">
+                <img src="@featureSection.ImageUrl" alt="" class="img-fluid wow fadeInUp">
+            </div>
+
+            <!-- Sağ 2 kart -->
+            <div class="col-lg-3">
+                @foreach (var item in rightItems)
+                {
+                    <div class="box-icon s2 d-invert p-small mb20 wow fadeInLeft">
+                        <i class="fa bg-color @item.Icon"></i>
+                        <div class="d-inner">
+                            <h4>@item.Title</h4>
+                            @item.Description
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>
