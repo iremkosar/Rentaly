@@ -1,0 +1,241 @@
+﻿@{
+    Layout = null;
+    var car = ViewBag.Car as Rentaly.EntityLayer.Entities.Car;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Rentaly - Rezervasyon</title>
+    <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="~/Rentaly/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="~/Rentaly/css/mdb.min.css" rel="stylesheet" type="text/css" id="mdb">
+    <link href="~/Rentaly/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="~/Rentaly/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/Rentaly/css/coloring.css" rel="stylesheet" type="text/css">
+    <link id="colors" href="~/Rentaly/css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+    <style>
+        #content {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        #wrapper {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        #subheader {
+            margin-top: 0 !important;
+        }
+
+
+        #content {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        #wrapper {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        #subheader {
+            margin-top: 0 !important;
+        }
+
+        /* BUNU EKLEYİN */
+        #section-hero {
+            background: #111111;
+        }
+
+        #booking_form_wrap {
+            background: #ffffff !important;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="de-preloader"></div>
+
+        @await Component.InvokeAsync("ListHeader")
+
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+
+            <section id="subheader" class="jarallax text-light">
+                <img src="~/Rentaly/images/background/2.jpg" class="jarallax-img" alt="">
+                <div class="center-y relative text-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h1>Rezervasyon</h1>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-hero" aria-label="section" class="no-top">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12 mt-80 sm-mt-0">
+                            <div class="spacer-single sm-hide"></div>
+                            <div id="booking_form_wrap" class="padding40 rounded-5 shadow-soft" data-bgcolor="#ffffff">
+
+                                @if (ViewBag.Error != null)
+                                {
+                                    <div class="alert alert-danger mb-4">
+                                        <i class="fa fa-exclamation-circle me-2"></i>@ViewBag.Error
+                                    </div>
+                                }
+
+                                <!-- Seçilen Araç -->
+                                <div class="row mb-4">
+                                    <div class="col-lg-12">
+                                        <div class="p-3 rounded-3" style="background:#f8f8f8; border-left: 4px solid #6fcf6f;">
+                                            <div class="d-flex align-items-center gap-4">
+                                                <img src="@car.ImageUrl" style="width:140px; height:90px; object-fit:cover; border-radius:8px;">
+                                                <div>
+                                                    <h4 class="mb-1">@car.Brand?.BrandName</h4>
+                                                    <p class="mb-1 text-muted">@car.Category?.CategoryName &bull; @car.SeatCount Koltuk &bull; @car.FuelType</p>
+                                                    <h5 style="color:#6fcf6f;">Günlük @car.DailyPrice.ToString("F0") ₺</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <form name="contactForm" id="booking_form" class="form-s2 row g-4" method="post" action="/Reservation/Create">
+                                    <input type="hidden" name="carId" value="@car.CarId">
+
+                                    <!-- Sol: Rezervasyon Bilgileri -->
+                                    <div class="col-lg-6 d-light">
+                                        <h4>Rezervasyon Bilgileri</h4>
+
+                                        <div class="row g-4 mt-1">
+                                            <div class="col-lg-6">
+                                                <h5>Alış Lokasyonu</h5>
+                                                <input type="text" name="pickUpLocation" class="form-control" placeholder="Alış yeri" required>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <h5>Dönüş Lokasyonu</h5>
+                                                <input type="text" name="dropOffLocation" class="form-control" placeholder="Dönüş yeri" required>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <h5>Alış Tarihi ve Saati</h5>
+                                                <div class="date-time-field">
+                                                    <input type="datetime-local" name="pickUpDateTime" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <h5>Dönüş Tarihi ve Saati</h5>
+                                                <div class="date-time-field">
+                                                    <input type="datetime-local" name="returnDateTime" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <h5>Notunuz</h5>
+                                                <textarea name="message" class="form-control" rows="3" placeholder="Eklemek istediğiniz bir şey var mı?"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sağ: Müşteri Bilgileri -->
+                                    <div class="col-lg-6">
+                                        <h4>Kişisel Bilgiler</h4>
+
+                                        <div class="row g-4 mt-1">
+                                            <div class="col-lg-6">
+                                                <div class="field-set">
+                                                    <input type="text" name="name" class="form-control" placeholder="Adınız" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="field-set">
+                                                    <input type="text" name="surname" class="form-control" placeholder="Soyadınız" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="field-set">
+                                                    <input type="email" name="email" class="form-control" placeholder="Email adresiniz" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="field-set">
+                                                    <input type="text" name="phone" class="form-control" placeholder="Telefon numaranız" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="field-set">
+                                                    <input type="text" name="identityNumber" class="form-control" placeholder="TC Kimlik No" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="field-set">
+                                                    <input type="text" name="drivingLicenseNumber" class="form-control" placeholder="Ehliyet No" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <h5>Ehliyet Tarihi</h5>
+                                                <div class="field-set">
+                                                    <input type="date" name="drivingLicenseDate" class="form-control" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Toplam & Gönder -->
+                                    <div class="col-lg-12">
+                                        <div class="p-3 rounded-3 d-flex justify-content-between align-items-center" style="background:#f8f8f8;">
+                                            <div>
+                                                <span class="text-muted">Toplam tutar gün sayısına göre hesaplanacaktır.</span><br>
+                                                <small>Günlük ücret: <strong style="color:#6fcf6f;">@car.DailyPrice.ToString("F0") ₺</strong></small>
+                                            </div>
+                                            <p id="submit" class="mb-0">
+                                                <input type="submit" value="Rezervasyonu Tamamla" class="btn-main btn-fullwidth">
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </form>
+                                @if (ViewBag.Success == true)
+                                {
+                                    <div class="modal fade show d-block" tabindex="-1" style="background:rgba(0,0,0,0.5);">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content rounded-5 p-4 text-center">
+                                                <i class="fa fa-check-circle mb-3" style="font-size:60px; color:#6fcf6f;"></i>
+                                                <h4>Rezervasyonunuz Alındı!</h4>
+                                                <p class="text-muted">Rezervasyon numaranız: <strong>#@ViewBag.ReservationId</strong></p>
+                                                <a href="/CarList/Index" class="btn-main w-100 mt-2">Tamam</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="spacer-double"></div>
+
+                            <!-- Timeline -->
+                            <!-- Timeline -->
+                            @await Component.InvokeAsync("HowItWork")
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <a href="#" id="back-to-top"></a>
+
+        @await Component.InvokeAsync("Footer")
+    </div>
+
+    <script src="~/Rentaly/js/plugins.js"></script>
+    <script src="~/Rentaly/js/designesia.js"></script>
+</body>
+</html>

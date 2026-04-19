@@ -1,13 +1,10 @@
-﻿using Rentaly.EntityLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Rentaly.DtoLayer.CustomerDtos;
+using Rentaly.EntityLayer.Entities;
 
 namespace Rentaly.DataAccessLayer.Abstract
 {
-    public interface ICustomerDal:IGenericDal<Customer>
+    public interface ICustomerDal : IGenericDal<Customer>
     {
+        Task<GetCustomerByIdDto> GetByEmailAsync(string email);
     }
 }

@@ -15,5 +15,7 @@ namespace Rentaly.BusinessLayer.Abstract
         Task TInsertAsync(CreateCustomerDto dto);
         Task TUpdateAsync(UpdateCustomerDto dto);
         Task TDeleteAsync(int id);
+        Task<GetCustomerByIdDto> TGetByEmailAsync(string email);
+       
     }
 }

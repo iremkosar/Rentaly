@@ -1,0 +1,17 @@
+﻿@model List<HowItWork>
+
+<div class="row">
+    <div class="col-lg-12 text-light">
+        <div class="container-timeline">
+            <ul>
+                @foreach(var item in Model)
+                {                                   
+                <li>
+                    <h4>@item.Title</h4>
+                    <p>@item.Description</p>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

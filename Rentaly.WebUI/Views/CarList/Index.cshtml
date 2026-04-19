@@ -1,0 +1,200 @@
+﻿@model List<Rentaly.EntityLayer.Entities.Car>
+@{
+    Layout = null;
+    var selectedCats = ViewBag.SelectedCategories as List<int> ?? new List<int>();
+    var selectedBrands = ViewBag.SelectedBrands as List<int> ?? new List<int>();
+    var selectedSeats = ViewBag.SelectedSeats as List<int> ?? new List<int>();
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Rentaly - Araçlar</title>
+    <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="~/Rentaly/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="~/Rentaly/css/mdb.min.css" rel="stylesheet" type="text/css" id="mdb">
+    <link href="~/Rentaly/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="~/Rentaly/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/Rentaly/css/coloring.css" rel="stylesheet" type="text/css">
+    <link id="colors" href="~/Rentaly/css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+    <style>
+        #content {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        #wrapper {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        #subheader {
+            margin-top: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="de-preloader"></div>
+
+        @await Component.InvokeAsync("ListHeader")
+
+        <div class="no-bottom no-top zebra" id="content">
+            <div id="top"></div>
+
+            <section id="subheader" class="jarallax text-light">
+                <img src="~/Rentaly/images/background/2.jpg" class="jarallax-img" alt="">
+                <div class="center-y relative text-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h1>Araçlar</h1>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-cars">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Sol Filtre -->
+                        <div class="col-lg-3">
+                            <form method="get" action="/CarList/Index">
+
+                                <div class="item_filter_group">
+                                    <h4>Araç Türü</h4>
+                                    <div class="de_form">
+                                        @foreach (var category in ViewBag.Categories as List<Rentaly.EntityLayer.Entities.Category>)
+                                        {
+                                            <div class="de_checkbox">
+                                                <input type="checkbox" name="categoryId"
+                                                       id="cat_@category.CategoryId"
+                                                       value="@category.CategoryId"
+                                                @(selectedCats.Contains(category.CategoryId) ? "checked" : "")>
+                                                <label for="cat_@category.CategoryId">@category.CategoryName</label>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="item_filter_group">
+                                    <h4>Marka</h4>
+                                    <div class="de_form">
+                                        @foreach (var brand in ViewBag.Brands as List<Rentaly.EntityLayer.Entities.Brand>)
+                                        {
+                                            <div class="de_checkbox">
+                                                <input type="checkbox" name="brandId"
+                                                       id="brand_@brand.BrandId"
+                                                       value="@brand.BrandId"
+                                                @(selectedBrands.Contains(brand.BrandId) ? "checked" : "")>
+                                                <label for="brand_@brand.BrandId">@brand.BrandName</label>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="item_filter_group">
+                                    <h4>Koltuk Sayısı</h4>
+                                    <div class="de_form">
+                                        <div class="de_checkbox">
+                                            <input type="checkbox" name="seatCount" id="seat_2" value="2"
+                                            @(selectedSeats.Contains(2) ? "checked" : "")>
+                                            <label for="seat_2">2 Koltuk</label>
+                                        </div>
+                                        <div class="de_checkbox">
+                                            <input type="checkbox" name="seatCount" id="seat_4" value="4"
+                                            @(selectedSeats.Contains(4) ? "checked" : "")>
+                                            <label for="seat_4">4 Koltuk</label>
+                                        </div>
+                                        <div class="de_checkbox">
+                                            <input type="checkbox" name="seatCount" id="seat_5" value="5"
+                                            @(selectedSeats.Contains(5) ? "checked" : "")>
+                                            <label for="seat_5">5 Koltuk</label>
+                                        </div>
+                                        <div class="de_checkbox">
+                                            <input type="checkbox" name="seatCount" id="seat_6" value="6"
+                                            @(selectedSeats.Contains(6) ? "checked" : "")>
+                                            <label for="seat_6">6+ Koltuk</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item_filter_group">
+                                    <h4>Fiyat (₺)</h4>
+                                    <div class="price-input">
+                                        <div class="field">
+                                            <span>Min</span>
+                                            <input type="number" name="minPrice" class="input-min" value="@ViewBag.MinPrice">
+                                        </div>
+                                        <div class="field">
+                                            <span>Max</span>
+                                            <input type="number" name="maxPrice" class="input-max" value="@ViewBag.MaxPrice">
+                                        </div>
+                                    </div>
+                                    <div class="slider">
+                                        <div class="progress"></div>
+                                    </div>
+                                    <div class="range-input">
+                                        <input type="range" class="range-min" min="0" max="10000" value="@ViewBag.MinPrice" step="1">
+                                        <input type="range" class="range-max" min="0" max="10000" value="@ViewBag.MaxPrice" step="1">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn-main w-100 mt-3">Filtrele</button>
+                                <a href="/CarList/Index" class="btn btn-secondary w-100 mt-2">Temizle</a>
+
+                            </form>
+                        </div>
+
+                        <!-- Araç Listesi -->
+                        <div class="col-lg-9">
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-xl-4 col-lg-6">
+                                        <div class="de-item mb30">
+                                            <div class="d-img" style="height: 200px; overflow: hidden;">
+                                                <img src="@item.ImageUrl" class="img-fluid" alt=""
+                                                     style="width: 100%; height: 100%; object-fit: cover;">
+                                            </div>
+                                            <div class="d-info">
+                                                <div class="d-text">
+                                                    <h4>@item.Brand?.BrandName</h4>
+                                                    <div class="d-atr-group">
+                                                        <span class="d-atr"><i class="fa fa-user" style="color:#6fcf6f; margin-right:4px;"></i>@item.SeatCount</span>
+                                                        <span class="d-atr"><i class="fa fa-suitcase" style="color:#6fcf6f; margin-right:4px;"></i>@item.LuggageCount</span>
+                                                        <span class="d-atr">
+                                                            <i class="fa fa-tint" style="color:#6fcf6f; margin-right:4px;"></i>@item.FuelType
+                                                        </span>
+                                                        <span class="d-atr"><i class="fa fa-car" style="color:#6fcf6f; margin-right:4px;"></i>@item.Category?.CategoryName</span>
+                                                    </div>
+                                                    <div class="d-price" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                                                        <span>Günlük @item.DailyPrice.ToString("F0") ₺</span>
+                                                        <a class="btn-main" href="/Reservation/Create?carId=@item.CarId">Kiralayın</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <a href="#" id="back-to-top"></a>
+
+        @await Component.InvokeAsync("Footer")
+
+    </div>
+    <script src="~/Rentaly/js/plugins.js"></script>
+    <script src="~/Rentaly/js/designesia.js"></script>
+</body>
+</html>

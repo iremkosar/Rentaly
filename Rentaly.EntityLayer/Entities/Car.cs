@@ -12,6 +12,7 @@ namespace Rentaly.EntityLayer.Entities
         public string PlateNumber { get; set; }
         public string VIN { get; set; } 
         public int BrandId { get; set; }
+        public Brand Brand { get; set; }
         public int ModelId { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }

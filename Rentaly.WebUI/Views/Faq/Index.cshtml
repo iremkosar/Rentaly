@@ -1,0 +1,50 @@
+﻿@model List<Faq>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>SSS Listesi</h2>
+            <a href="/Faq/Create" class="btn btn-success mb-3">
+                <i class="fa fa-plus"></i> Yeni Ekle
+            </a>
+            <table class="table table-bordered table-hover table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Soru</th>
+                        <th>Cevap</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FaqId</td>
+                            <td>@item.Question</td>
+                            <td>@item.Answer</td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a href="/Faq/Update/@item.FaqId" class="btn btn-warning btn-sm">
+                                        <i class="fa fa-pencil"></i> Düzenle
+                                    </a>
+                                    <a href="/Faq/Delete/@item.FaqId" class="btn btn-danger btn-sm"
+                                       onclick="return confirm('Silmek istediğinize emin misiniz?')">
+                                        <i class="fa fa-trash"></i> Sil
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

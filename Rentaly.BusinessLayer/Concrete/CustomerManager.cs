@@ -50,5 +50,9 @@ namespace Rentaly.BusinessLayer.Concrete
             var value = _mapper.Map<Customer>(dto);
             await _customerDal.UpdateAsync(value);
         }
+        public async Task<GetCustomerByIdDto> TGetByEmailAsync(string email)
+        {
+            return await _customerDal.GetByEmailAsync(email);
+        }
     }
 }

@@ -14,6 +14,11 @@ namespace Rentaly.WebUI.Controllers
             _brandService = brandService;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var values= await _brandService.TGetListAsync();
+            return View(values);
+        }
         public IActionResult CreateBrand()
         {
             return View();
@@ -32,6 +37,22 @@ namespace Rentaly.WebUI.Controllers
             await _brandService.TInsertAsync(brand); 
             return RedirectToAction("Index");
 
+        }
+        public async Task<IActionResult> Update(int id)
+        {
+            var values=await _brandService.TGetByIdAsync(id);
+            return View(values);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(Brand brand)
+        {
+            await _brandService.TUpdateAsync(brand);
+            return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _brandService.TDeleteAsync(id);
+            return RedirectToAction("Index");
         }
     }
 }

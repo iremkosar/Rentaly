@@ -36,6 +36,15 @@ builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<IStatisticService, StatisticManager>();
 builder.Services.AddScoped<IStatisticDal, EfStatisticDal>();
 
+builder.Services.AddScoped<IFaqService, FaqManager>();
+builder.Services.AddScoped<IFaqDal, EfFaqDal>();
+
+builder.Services.AddScoped<IHowItWorkService, HowItWorkManager>();
+builder.Services.AddScoped<IHowItWorkDal, EfHowItWorkDal>();
+
+builder.Services.AddScoped<IReservationService, ReservationManager>();
+builder.Services.AddScoped<IReservationDal, EfReservationDal>();
+
 builder.Services.AddDbContext<RentalyContext>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

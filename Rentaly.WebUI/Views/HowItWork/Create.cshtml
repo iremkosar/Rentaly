@@ -1,0 +1,34 @@
+﻿@model HowItWork
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Yeni Adım Ekle</h2>
+            <form method="post" action="/HowItWork/Create">
+                <div class="mb-3">
+                    <label>Adım Numarası</label>
+                    <input type="number" class="form-control" asp-for="StepNumber" placeholder="1">
+                </div>
+                <div class="mb-3">
+                    <label>Başlık</label>
+                    <input type="text" class="form-control" asp-for="Title" placeholder="Araç Seçin">
+                </div>
+                <div class="mb-3">
+                    <label>Açıklama</label>
+                    <textarea class="form-control" asp-for="Description" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i> Kaydet
+                </button>
+                <a href="/HowItWork/Index" class="btn btn-secondary">
+                    <i class="fa fa-arrow-left"></i> Geri Dön
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
