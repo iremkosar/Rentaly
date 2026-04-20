@@ -30,6 +30,7 @@ Dinamik istatistikler (EF Core + LINQ)
 
 📨 Rezervasyon Yönetimi
 Kullanıcıdan gelen talepler admin paneline düşer
+
 Onay / Red işlemleri yapılır
 📧 Otomatik Mail Sistemi
 
