@@ -55,7 +55,11 @@ profesyonel ve güçlü e-posta gönderimi
 🔄 Sistem Akışı
 
 Kullanıcı araç seçer ve rezervasyon formunu doldurur
+
 Veriler admin paneline düşer
+
 Admin rezervasyonu inceler
+
 Onay / Red işlemi yapılır
+
 Onay sonrası kullanıcıya otomatik güçlü e-posta gönderilir
