@@ -63,3 +63,26 @@ Admin rezervasyonu inceler
 Onay / Red işlemi yapılır
 
 Onay sonrası kullanıcıya otomatik güçlü e-posta gönderilir
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/1.png)
+
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/2.png)
+
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/3.png)
+
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/4.png)
+
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/5.png)
+
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/6.png)
+
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/7.png)
+
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/8.png)
+
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/9.png)
+
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/10.png)
+
+![image_alt](https://github.com/iremkosar/Rentaly/blob/9bce258c789be87c6d69478be65bebba3dbb9781/Rentaly.WebUI/wwwroot/11.png)
+
+
