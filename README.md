@@ -8,19 +8,24 @@ Araç türüne göre filtreleme (SUV, Sedan, Hatchback vb.)
 Müsaitlik durumu ve teknik detaylar
 Fiyat, kapı sayısı gibi kriterlerle gelişmiş arama
 Performanslı ve kullanıcı dostu filtreleme sistemi
+
 📬 Rezervasyon Sistemi
 Kullanıcılar kolayca rezervasyon oluşturabilir
 Gönderilen talepler anlık olarak admin paneline iletilir
+
 ⚠️ Özel 404 Sayfası
 Kullanıcıyı yönlendiren özel tasarım
 Hatalı sayfalarda iyileştirilmiş deneyim
+
 📊 Admin Paneli
 📨 Rezervasyon Yönetimi
 Gelen rezervasyon taleplerinin listelenmesi
 Onay / red süreçlerinin yönetimi
+
 📧 Otomatik Mail Sistemi
 Onaylanan rezervasyonlar için otomatik e-posta gönderimi
 Profesyonel mail şablonları ile kullanıcı bilgilendirme
+
 🧩 Teknik Altyapı
 ⚙️ ASP.NET Core (N-Tier Architecture)
 🧱 Entity Framework Core (Code First)
