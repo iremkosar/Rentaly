@@ -5,12 +5,14 @@ Rentaly, modern web teknolojileri ve yapay zeka entegrasyonu ile geliştirilmiş
 ✨ Proje Özellikleri
 
 🎬 Dinamik Ana Sayfa
+
 🚘 Araç Listeleme & Filtreleme
 
 Araç türüne göre filtreleme (SUV, Sedan, Hatchback vb.)
 Araç müsaitlik durumu
 Kapı sayısı, fiyat ve teknik özellikler
 Gelişmiş filtreleme sistemi
+
 ⚠️ Özel 404 Sayfası
 Kullanıcı deneyimini artıran tasarım
 Hatalı sayfalarda yönlendirme
@@ -37,13 +39,18 @@ profesyonel ve güçlü e-posta gönderimi
 🧩 Teknik Altyapı
 
 ⚙️ ASP.NET Core (N Katmanlı Mimari)
-🧱 Entity Framework Core
-🗄️ MSSQL Server
-🎨 Bootstrap / Tailwind CSS
-🔄 AJAX & Dinamik veri işlemleri
-📬 SMTP Mail Servisi
-🔄 Sistem Akışı
 
+🧱 Entity Framework Core
+
+🗄️ MSSQL Server
+
+🎨 Bootstrap / Tailwind CSS
+
+🔄 AJAX & Dinamik veri işlemleri
+
+📬 SMTP Mail Servisi
+
+🔄 Sistem Akışı
 
 Kullanıcı araç seçer ve rezervasyon formunu doldurur
 Veriler admin paneline düşer
