@@ -32,7 +32,7 @@ Profesyonel mail şablonları ile kullanıcı bilgilendirme
 🗄️ Microsoft SQL Server
 🔄 AJAX ile dinamik veri işlemleri
 📬 SMTP Mail Servisi
-🤖 AI entegrasyonu (Claude AI)
+
 🔄 Sistem Akışı
 Kullanıcı araç seçimini yapar
 Rezervasyon formunu doldurur
