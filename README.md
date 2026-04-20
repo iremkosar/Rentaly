@@ -34,6 +34,7 @@ Profesyonel mail şablonları ile kullanıcı bilgilendirme
 📬 SMTP Mail Servisi
 
 🔄 Sistem Akışı
+
 Kullanıcı araç seçimini yapar
 Rezervasyon formunu doldurur
 Talep admin paneline iletilir
