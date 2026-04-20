@@ -1,0 +1,22 @@
+﻿@model Location
+@{
+    ViewData["Title"] = "CreateLocation";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2>Yeni Lokasyon Ekle</h2>
+            <form method="post" action="/Location/CreateLocation">
+                <div class="mb-3">
+                    <label>Lokasyon Adı</label>
+                    <input type="text" name="LocationName" class="form-control" placeholder="örn. İstanbul Havalimanı" required>
+                </div>
+                <button type="submit" class="btn btn-success">Kaydet</button>
+                <a href="/Location/Index" class="btn btn-secondary">Geri Dön</a>
+            </form>
+        </div>
+    </div>
+</div>
+

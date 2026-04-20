@@ -39,6 +39,7 @@ namespace Rentaly.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCar(Car car)
         {
+            car.CarId = 0;
             await _carService.TInsertAsync(car);
             return RedirectToAction("CarList");
         }

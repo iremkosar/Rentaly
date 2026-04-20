@@ -50,7 +50,7 @@
                             </div>
                             <div class="d-info">
                                 <div class="d-text">
-                                    <h4>@item.Category.CategoryName</h4>                                  
+                                    <h4>@item.Brand.BrandName</h4>                                  
                                     <div class="d-atr-group" style="display:flex; flex-direction:row; gap:10px; align-items:center;">
                                         <span class="d-atr" style="display:flex; align-items:center; gap:4px;">
                                             <img src="~/Rentaly/images/icons/1-green.svg" width="16" height="16" alt="">@item.SeatCount
@@ -70,7 +70,11 @@
                                             Günlük fiyat<br>
                                             <span>@item.DailyPrice.ToString("F0") ₺</span>
                                         </div>
-                                        <a class="btn-main" href="#">Kirala</a>
+                                        <a class="btn-main" href="/Reservation/Create?carId=@item.CarId
+&pickUpDateTime=@ViewBag.PickUpDateTime
+&returnDateTime=@ViewBag.ReturnDateTime
+&pickUpLocation=@ViewBag.PickUpLocation
+&dropOffLocation=@ViewBag.DropOffLocation">Kirala</a>
                                     </div>
                                 </div>
                             </div>

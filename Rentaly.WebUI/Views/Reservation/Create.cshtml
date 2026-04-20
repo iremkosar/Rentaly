@@ -1,6 +1,9 @@
 ﻿@{
     Layout = null;
     var car = ViewBag.Car as Rentaly.EntityLayer.Entities.Car;
+    var locations = ViewBag.Locations as List<Rentaly.EntityLayer.Entities.Location>;
+    var pickUpLocation = ViewBag.PickUpLocation?.ToString();
+    var dropOffLocation = ViewBag.DropOffLocation?.ToString();
 }
 <!DOCTYPE html>
 <html lang="tr">
@@ -30,22 +33,6 @@
             margin-top: 0 !important;
         }
 
-
-        #content {
-            margin-top: 0 !important;
-            padding-top: 0 !important;
-        }
-
-        #wrapper {
-            margin-top: 0 !important;
-            padding-top: 0 !important;
-        }
-
-        #subheader {
-            margin-top: 0 !important;
-        }
-
-        /* BUNU EKLEYİN */
         #section-hero {
             background: #111111;
         }
@@ -53,8 +40,6 @@
         #booking_form_wrap {
             background: #ffffff !important;
         }
-
-       
     </style>
 </head>
 <body>
@@ -120,23 +105,47 @@
                                         <div class="row g-4 mt-1">
                                             <div class="col-lg-6">
                                                 <h5>Alış Lokasyonu</h5>
-                                                <input type="text" name="pickUpLocation" class="form-control" placeholder="Alış yeri" required>
+                                                <select name="pickUpLocation" class="form-control" required>
+                                                    <option value="">Seçiniz...</option>
+                                                    @foreach (var location in locations)
+                                                    {
+                                                        if (location.LocationName == pickUpLocation)
+                                                        {
+                                                            <option value="@location.LocationName" selected>@location.LocationName</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@location.LocationName">@location.LocationName</option>
+                                                        }
+                                                    }
+                                                </select>
                                             </div>
                                             <div class="col-lg-6">
                                                 <h5>Dönüş Lokasyonu</h5>
-                                                <input type="text" name="dropOffLocation" class="form-control" placeholder="Dönüş yeri" required>
+                                                <select name="dropOffLocation" class="form-control" required>
+                                                    <option value="">Seçiniz...</option>
+                                                    @foreach (var location in locations)
+                                                    {
+                                                        if (location.LocationName == dropOffLocation)
+                                                        {
+                                                            <option value="@location.LocationName" selected>@location.LocationName</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@location.LocationName">@location.LocationName</option>
+                                                        }
+                                                    }
+                                                </select>
                                             </div>
                                             <div class="col-lg-6">
                                                 <h5>Alış Tarihi ve Saati</h5>
-                                                <div class="date-time-field">
-                                                    <input type="datetime-local" name="pickUpDateTime" class="form-control" required>
-                                                </div>
+                                                <input type="datetime-local" name="pickUpDateTime" class="form-control"
+                                                       value="@ViewBag.PickUpDateTime" required>
                                             </div>
                                             <div class="col-lg-6">
                                                 <h5>Dönüş Tarihi ve Saati</h5>
-                                                <div class="date-time-field">
-                                                    <input type="datetime-local" name="returnDateTime" class="form-control" required>
-                                                </div>
+                                                <input type="datetime-local" name="returnDateTime" class="form-control"
+                                                       value="@ViewBag.ReturnDateTime" required>
                                             </div>
                                             <div class="col-lg-12">
                                                 <h5>Notunuz</h5>
@@ -203,6 +212,7 @@
                                     </div>
 
                                 </form>
+
                                 @if (ViewBag.Success == true)
                                 {
                                     <div class="modal fade show d-block" tabindex="-1" style="background:rgba(0,0,0,0.5);">
@@ -220,10 +230,7 @@
 
                             <div class="spacer-double"></div>
 
-                            <!-- Timeline -->
-                            <!-- Timeline -->
                             @await Component.InvokeAsync("HowItWork")
-
                         </div>
                     </div>
                 </div>

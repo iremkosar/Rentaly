@@ -174,7 +174,11 @@
                                                     </div>
                                                     <div class="d-price" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
                                                         <span>Günlük @item.DailyPrice.ToString("F0") ₺</span>
-                                                        <a class="btn-main" href="/Reservation/Create?carId=@item.CarId">Kiralayın</a>
+                                                        <a class="btn-main" href="/Reservation/Create?carId=@item.CarId
+    &pickUpDateTime=@ViewBag.PickUpDateTime
+    &returnDateTime=@ViewBag.ReturnDateTime
+    &pickUpLocation=@ViewBag.PickUpLocation
+    &dropOffLocation=@ViewBag.DropOffLocation">Kiralayın</a>
                                                     </div>
                                                 </div>
                                             </div>

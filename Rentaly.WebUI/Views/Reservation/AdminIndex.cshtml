@@ -1,0 +1,211 @@
+﻿@model List<Reservation>
+@{
+    ViewData["Title"] = "AdminIndex";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-header">
+    <div>
+        <h1 class="page-title">Rezervasyon Listesi</h1>
+        <p class="page-subtitle">Tüm rezervasyonları görüntüleyin ve yönetin.</p>
+    </div>
+</div>
+
+
+
+<!-- ═══ Tablo ═══ -->
+<div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;">
+    <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;">
+            <thead>
+                <tr style="background:#f8fafc;border-bottom:2px solid var(--border);">
+                    <th style="padding:13px 18px;text-align:left;font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;width:50px;">#</th>
+                    <th style="padding:13px 18px;text-align:left;font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;">Müşteri</th>
+                    <th style="padding:13px 18px;text-align:left;font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;">Araç</th>
+                    <th style="padding:13px 18px;text-align:left;font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;">Alış Lokasyonu</th>
+                    <th style="padding:13px 18px;text-align:left;font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;">Dönüş Lokasyonu</th>
+                    <th style="padding:13px 18px;text-align:left;font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;">Alış Tarihi</th>
+                    <th style="padding:13px 18px;text-align:left;font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;">Dönüş Tarihi</th>
+                    <th style="padding:13px 18px;text-align:left;font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;">Toplam</th>
+                    <th style="padding:13px 18px;text-align:center;font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;">Durum</th>
+                    <th style="padding:13px 18px;text-align:center;font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;width:160px;">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                @foreach (var item in Model)
+                {
+                    <tr class="tbl-row"
+                        data-customer="@($"{item.Customer?.Name} {item.Customer?.Surname}".ToLower())"
+                        data-car="@item.Car?.Brand?.BrandName?.ToLower()"
+                        data-status="@item.Status"
+                        style="border-bottom:1px solid var(--border);transition:background .15s;"
+                        onmouseover="this.style.background='#f8fafc'"
+                        onmouseout="this.style.background=''">
+
+                        <td style="padding:14px 18px;">
+                            <span style="font-size:12px;font-weight:700;color:var(--text-muted);">#@item.ReservationId</span>
+                        </td>
+
+                        <td style="padding:14px 18px;">
+                            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:700;color:var(--text-main);">
+                                @item.Customer?.Name @item.Customer?.Surname
+                            </div>
+                            <div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">
+                                @item.Customer?.Email
+                            </div>
+                        </td>
+
+                        <td style="padding:14px 18px;">
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                @if (!string.IsNullOrEmpty(item.Car?.ImageUrl))
+                                {
+                                    <img src="@item.Car.ImageUrl"
+                                         alt="Araç"
+                                         style="width:52px;height:38px;object-fit:cover;border-radius:6px;border:1px solid var(--border);"
+                                         onerror="this.style.display='none'" />
+                                }
+                                else
+                                {
+                                    <div style="width:52px;height:38px;border-radius:6px;background:#e8efff;display:flex;align-items:center;justify-content:center;">
+                                        <i class="fa-solid fa-car-side" style="color:var(--primary);font-size:16px;"></i>
+                                    </div>
+                                }
+                                <div>
+                                    <div style="display:inline-flex;align-items:center;gap:6px;background:#e8efff;color:var(--primary);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;">
+                                        @item.Car?.Brand?.BrandName
+                                    </div>
+                                    <div style="font-size:11.5px;color:var(--text-muted);margin-top:3px;">
+                                        @item.Car?.PlateNumber
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td style="padding:14px 18px;">
+                            <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-main);">
+                                <i class="fa-solid fa-location-dot" style="color:#059669;font-size:12px;"></i>
+                                @item.PickUpLocation
+                            </div>
+                        </td>
+
+                        <td style="padding:14px 18px;">
+                            <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-main);">
+                                <i class="fa-solid fa-location-dot" style="color:#dc2626;font-size:12px;"></i>
+                                @item.DropOffLocation
+                            </div>
+                        </td>
+
+                        <td style="padding:14px 18px;">
+                            <div style="font-size:13px;color:var(--text-main);font-weight:600;">@item.PickUpDateTime.ToString("dd.MM.yyyy")</div>
+                            <div style="font-size:11.5px;color:var(--text-muted);">@item.PickUpDateTime.ToString("HH:mm")</div>
+                        </td>
+
+                        <td style="padding:14px 18px;">
+                            <div style="font-size:13px;color:var(--text-main);font-weight:600;">@item.ReturnDateTime.ToString("dd.MM.yyyy")</div>
+                            <div style="font-size:11.5px;color:var(--text-muted);">@item.ReturnDateTime.ToString("HH:mm")</div>
+                        </td>
+
+                        <td style="padding:14px 18px;">
+                            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:var(--primary);">
+                                @item.TotalPrice.ToString("F0") ₺
+                            </div>
+                        </td>
+
+                        <td style="padding:14px 18px;text-align:center;">
+                            @if (item.Status == "Onaylandı")
+                            {
+                                <span style="display:inline-flex;align-items:center;gap:5px;background:#d1fae5;color:#065f46;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:700;">
+                                    <i class="fa-solid fa-circle-check" style="font-size:11px;"></i> Onaylandı
+                                </span>
+                            }
+                            else if (item.Status == "İptal")
+                            {
+                                <span style="display:inline-flex;align-items:center;gap:5px;background:#fee2e2;color:#991b1b;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:700;">
+                                    <i class="fa-solid fa-circle-xmark" style="font-size:11px;"></i> İptal
+                                </span>
+                            }
+                            else
+                            {
+                                <span style="display:inline-flex;align-items:center;gap:5px;background:#fef9c3;color:#b45309;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:700;">
+                                    <i class="fa-solid fa-clock" style="font-size:11px;"></i> Beklemede
+                                </span>
+                            }
+                        </td>
+
+                        <td style="padding:14px 18px;">
+                            <div style="display:flex;gap:6px;justify-content:center;">
+                                @if (item.Status == "Beklemede")
+                                {
+                                    <a href="/Reservation/Approve/@item.ReservationId"
+                                       onclick="return confirm('Rezervasyonu onaylamak istediğinize emin misiniz?')"
+                                       style="display:inline-flex;align-items:center;gap:5px;padding:7px 12px;background:#d1fae5;color:#065f46;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;border:1px solid #6ee7b7;transition:all .2s;"
+                                       onmouseover="this.style.background='#059669';this.style.color='#fff';this.style.borderColor='#059669';"
+                                       onmouseout="this.style.background='#d1fae5';this.style.color='#065f46';this.style.borderColor='#6ee7b7';">
+                                        <i class="fa-solid fa-check"></i> Onayla
+                                    </a>
+                                    <a href="/Reservation/Cancel/@item.ReservationId"
+                                       onclick="return confirm('Rezervasyonu iptal etmek istediğinize emin misiniz?')"
+                                       style="display:inline-flex;align-items:center;gap:5px;padding:7px 12px;background:#fee2e2;color:#991b1b;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;border:1px solid #fecaca;transition:all .2s;"
+                                       onmouseover="this.style.background='#ef4444';this.style.color='#fff';this.style.borderColor='#ef4444';"
+                                       onmouseout="this.style.background='#fee2e2';this.style.color='#991b1b';this.style.borderColor='#fecaca';">
+                                        <i class="fa-solid fa-xmark"></i> İptal
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span style="font-size:13px;color:var(--text-muted);">—</span>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <div class="empty-icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <h6 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;margin-bottom:6px;">Henüz Rezervasyon Yok</h6>
+            <p style="font-size:13.5px;color:var(--text-muted);">Sisteme henüz rezervasyon eklenmemiş.</p>
+        </div>
+    }
+</div>
+
+<div id="emptySearch" style="display:none;" class="empty-state">
+    <div class="empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+    <h6 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;margin-bottom:6px;">Sonuç Bulunamadı</h6>
+    <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:14px;">Arama kriterinizle eşleşen rezervasyon yok.</p>
+    <button class="btn-primary-custom" onclick="resetFilter()">
+        <i class="fa-solid fa-rotate-left"></i> Temizle
+    </button>
+</div>
+
+<script>
+    function filterTable() {
+        const q      = document.getElementById('searchInput').value.toLowerCase().trim();
+        const status = document.getElementById('filterStatus').value;
+        const rows   = [...document.querySelectorAll('.tbl-row')];
+
+        rows.forEach(r => {
+            const customer = r.dataset.customer || '';
+            const car      = r.dataset.car      || '';
+            const st       = r.dataset.status   || '';
+            const matchQ  = !q || customer.includes(q) || car.includes(q);
+            const matchSt = status === 'all' || st === status;
+            r.style.display = (matchQ && matchSt) ? '' : 'none';
+        });
+
+        const visible = rows.filter(r => r.style.display !== 'none');
+        const tableWrap = document.querySelector('[style*="overflow:hidden"]');
+        document.getElementById('emptySearch').style.display = visible.length === 0 ? 'block' : 'none';
+        tableWrap.style.display = visible.length === 0 ? 'none' : 'block';
+    }
+
+    function resetFilter() {
+        document.getElementById('searchInput').value  = '';
+        document.getElementById('filterStatus').value = 'all';
+        filterTable();
+    }
+</script>

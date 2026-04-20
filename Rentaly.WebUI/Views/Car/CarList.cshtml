@@ -759,7 +759,7 @@
                 <!-- Başlık + Plaka -->
                 <div class="car-card-title-row">
                     <div class="car-card-title">
-                        @(car.Category?.CategoryName ?? "—") &nbsp;#@car.CarId
+                        @(car.Brand?.BrandName ?? "—") &nbsp;#@car.CarId
                     </div>
                     <span class="car-card-plate">@car.PlateNumber</span>
                 </div>
@@ -850,7 +850,7 @@
 
             <div class="car-list-info">
                 <div class="car-list-title">
-                    @(car.Category?.CategoryName ?? "—") — @car.PlateNumber
+                    @(car.Brand?.BrandName ?? "—") — @car.PlateNumber
                 </div>
                 <div class="car-list-sub" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
                     <span>@car.Year</span>

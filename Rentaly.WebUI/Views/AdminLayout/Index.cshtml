@@ -12,81 +12,85 @@
 <body>
 
     <aside class="sidebar" id="sidebar">
-        <a href="admin-layout.html" class="sidebar-logo">
+        <a href="/Home/Index" class="sidebar-logo">
             <div class="logo-icon"><i class="fa-solid fa-car-side"></i></div>
             <div class="logo-text">
-                <strong>RentCar</strong>
+                <strong>Rentaly</strong>
                 <span>Admin Panel</span>
             </div>
         </a>
 
         <nav class="sidebar-nav" id="sidebarNav">
-            <div class="menu-label">Ana Menü</div>
-            <a href="admin-layout.html" class="nav-link active">
-                <span class="nav-icon"><i class="fa-solid fa-gauge-high"></i></span>
-                <span class="link-text">Dashboard</span>
-            </a>
 
-            <div class="menu-label">Araç Yönetimi</div>
+          
+
+           
             <div class="has-submenu" id="vehicleMenu">
-                <div class="nav-link" onclick="toggleSubmenu('vehicleSubmenu', 'vehicleMenu')">
-                    <span class="nav-icon"><i class="fa-solid fa-cars"></i></span>
-                    <span class="link-text">Araç Yönetimi</span>
-                    <i class="fa-solid fa-chevron-right submenu-arrow ms-auto"></i>
-                </div>
-                <div class="submenu open" id="vehicleSubmenu">
+                
+               
                     <a href="/Car/CarList" class="nav-link">
-                        <span class="nav-icon"><i class="fa-solid fa-list"></i></span>
+                        <span class="nav-icon"><i class="fa-solid fa-list-ul"></i></span>
                         <span class="link-text">Araç Listesi</span>
                     </a>
-                    <a href="#" class="nav-link">
-                        <span class="nav-icon"><i class="fa-solid fa-plus"></i></span>
-                        <span class="link-text">Yeni Araç Ekle</span>
-                    </a>
-                    <a href="#" class="nav-link">
-                        <span class="nav-icon"><i class="fa-solid fa-trademark"></i></span>
-                        <span class="link-text">Marka Yönetimi</span>
-                    </a>
-                    <a href="#" class="nav-link">
-                        <span class="nav-icon"><i class="fa-solid fa-cube"></i></span>
-                        <span class="link-text">Model Yönetimi</span>
+                    <a href="/Location/Index" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-location-dot"></i></span>
+                        <span class="link-text">Lokasyonlar</span>
                     </a>
                     <a href="/Brand/Index" class="nav-link">
-                        <span class="nav-icon"><i class="fa-solid fa-tags"></i></span>
+                        <span class="nav-icon"><i class="fa-solid fa-shield-halved"></i></span>
                         <span class="link-text">Markalar</span>
                     </a>
-                </div>
+                    <a href="/Category/Index" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-tags"></i></span>
+                        <span class="link-text">Kategoriler</span>
+                    </a>
+                    <a href="/Customer/CustomerList" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-users"></i></span>
+                        <span class="link-text">Müşteriler</span>
+                    </a>
+               
             </div>
 
-            <div class="menu-label">Operasyon</div>
+          
             <a href="/Feature/Index" class="nav-link">
-                <span class="nav-icon"><i class="fa-solid fa-building"></i></span>
-                <span class="link-text">Features</span>
+                <span class="nav-icon"><i class="fa-solid fa-star"></i></span>
+                <span class="link-text">Özellikler</span>
             </a>
             <a href="/Adventure/Index" class="nav-link">
-                <span class="nav-icon"><i class="fa-solid fa-users"></i></span>
-                <span class="link-text">Adventures</span>
-                <span class="menu-badge">12</span>
+                <span class="nav-icon"><i class="fa-solid fa-trophy"></i></span>
+                <span class="link-text">Ödüller</span>
+               
             </a>
             <a href="/Testimonial/Index" class="nav-link">
-                <span class="nav-icon"><i class="fa-solid fa-calendar-check"></i></span>
-                <span class="link-text">Testimonial</span>
-                <span class="menu-badge">5</span>
+                <span class="nav-icon"><i class="fa-solid fa-comment-dots"></i></span>
+                <span class="link-text">Yorumlar</span>
+              
             </a>
-            <a href="/Statistic/Index" class="nav-link">
-                <span class="nav-icon"><i class="fa-solid fa-credit-card"></i></span>
-                <span class="link-text">Statistic</span>
-            </a>
-
-            <div class="menu-label">Sistem</div>
             <a href="/Faq/Index" class="nav-link">
-                <span class="nav-icon"><i class="fa-solid fa-chart-line"></i></span>
+                <span class="nav-icon"><i class="fa-solid fa-circle-question"></i></span>
                 <span class="link-text">Sık Sorulan Sorular</span>
             </a>
             <a href="/HowItWork/Index" class="nav-link">
-                <span class="nav-icon"><i class="fa-solid fa-gear"></i></span>
+                <span class="nav-icon"><i class="fa-solid fa-gears"></i></span>
                 <span class="link-text">Nasıl Çalışıyoruz</span>
             </a>
+
+         
+            <a href="/Reservation/AdminIndex" class="nav-link">
+                <span class="nav-icon"><i class="fa-solid fa-calendar-check"></i></span>
+                <span class="link-text">Rezervasyonlar</span>
+            </a>
+            <a href="/Statistic/Index" class="nav-link">
+                <span class="nav-icon"><i class="fa-solid fa-chart-line"></i></span>
+                <span class="link-text">İstatistikler</span>
+            </a>
+
+          
+            <a href="/Home/Index" class="nav-link">
+                <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+                <span class="link-text">Ana Sayfa</span>
+            </a>
+
         </nav>
 
         <div class="sidebar-footer">
@@ -94,7 +98,7 @@
                 <img src="https://ui-avatars.com/api/?name=Admin+User&background=1a56db&color=fff&size=80" alt="Admin" />
                 <div class="user-info">
                     <div class="user-name">Admin User</div>
-                    <div class="user-role">Süper Yönetici</div>
+                    <div class="user-role">İrem Koşar</div>
                 </div>
             </div>
         </div>
@@ -134,7 +138,7 @@
                     <a href="#" class="dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown">
                         <img src="https://ui-avatars.com/api/?name=Admin+User&background=1a56db&color=fff&size=80" alt="Admin">
                         <div class="admin-info d-none d-lg-flex">
-                            <span class="admin-name">Admin User</span><span class="admin-role">Süper Yönetici</span>
+                            <span class="admin-name">Admin User</span><span class="admin-role">İrem Koşar</span>
                         </div>
                         <i class="fa-solid fa-chevron-down" style="font-size:11px;color:var(--text-muted);"></i>
                     </a>
@@ -153,7 +157,7 @@
         </main>
 
         <footer class="site-footer">
-            <div class="footer-text">© 2026 <span>RentCar</span> Yönetim Paneli — Tüm Hakları Saklıdır</div>
+            <div class="footer-text">© 2026 <span>Rentaly</span> Yönetim Paneli — Tüm Hakları Saklıdır</div>
             <div class="footer-links">
                 <a href="#">Gizlilik Politikası</a><a href="#">Kullanım Koşulları</a><a href="#">Destek</a>
             </div>

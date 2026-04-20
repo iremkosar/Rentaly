@@ -660,7 +660,7 @@
 <div class="row g-4">
     <!-- ═══ Form ═══ -->
     <div class="col-12 col-lg-8">
-        <form asp-action="CreateCar" asp-controller="Car" method="post" id="carCreateForm">
+        <form asp-action="UpdateCar" asp-controller="Car" method="post" id="carCreateForm">
             @Html.AntiForgeryToken()
             <input type="hidden" asp-for="CarId" />
             <!-- ══════════════════════

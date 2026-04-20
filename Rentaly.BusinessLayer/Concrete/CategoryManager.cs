@@ -43,5 +43,9 @@ namespace Rentaly.BusinessLayer.Concrete
         {
             await _categoryDal.UpdateAsync(entity);
         }
+        public async Task<List<Category>> TGetCategoriesWithCarsAsync()
+        {
+            return await _categoryDal.GetCategoriesWithCarsAsync();
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace Rentaly.DataAccessLayer.Concrete
         public DbSet<Faq> Faqs { get; set; }
         public DbSet<HowItWork> HowItWorks {  get; set; }
        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
     }
 }

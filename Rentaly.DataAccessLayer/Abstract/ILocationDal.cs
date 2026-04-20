@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rentaly.BusinessLayer.Abstract
+namespace Rentaly.DataAccessLayer.Abstract
 {
-    public interface ICategoryService:IGenericService<Category>
+    public interface ILocationDal:IGenericDal<Location>
     {
-        Task<List<Category>> TGetCategoriesWithCarsAsync();
     }
 }

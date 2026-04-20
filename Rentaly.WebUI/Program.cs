@@ -3,6 +3,7 @@ using Rentaly.BusinessLayer.Concrete;
 using Rentaly.DataAccessLayer.Abstract;
 using Rentaly.DataAccessLayer.Concrete;
 using Rentaly.DataAccessLayer.EntityFramework;
+using Rentaly.WebUI.Services;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -45,13 +46,22 @@ builder.Services.AddScoped<IHowItWorkDal, EfHowItWorkDal>();
 builder.Services.AddScoped<IReservationService, ReservationManager>();
 builder.Services.AddScoped<IReservationDal, EfReservationDal>();
 
+builder.Services.AddScoped<ILocationService, LocationManager>();
+builder.Services.AddScoped<ILocationDal, EfLocationDal>();
+
 builder.Services.AddDbContext<RentalyContext>();
+
+builder.Services.Configure<EmailSettings>(
+    builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+app.UseStatusCodePagesWithReExecute("/Home/Error404");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

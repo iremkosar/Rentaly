@@ -28,5 +28,6 @@ namespace Rentaly.EntityLayer.Entities
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public string Status { get; set; } = "Beklemede";
+        public string? DiscountCode { get; set; }
     }
 }

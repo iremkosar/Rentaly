@@ -16,7 +16,7 @@ namespace Rentaly.WebUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var values= await _brandService.TGetListAsync();
+            var values = await _brandService.TGetListAsync();
             return View(values);
         }
         public IActionResult CreateBrand()
@@ -28,19 +28,19 @@ namespace Rentaly.WebUI.Controllers
         {
             var validator = new BrandValidator();
             var result = validator.Validate(brand);
-            if (!result.IsValid) 
+            if (!result.IsValid)
             {
                 foreach (var error in result.Errors)
-                 ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                    ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
                 return View(brand);
             }
-            await _brandService.TInsertAsync(brand); 
+            await _brandService.TInsertAsync(brand);
             return RedirectToAction("Index");
 
         }
         public async Task<IActionResult> Update(int id)
         {
-            var values=await _brandService.TGetByIdAsync(id);
+            var values = await _brandService.TGetByIdAsync(id);
             return View(values);
         }
         [HttpPost]

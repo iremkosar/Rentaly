@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Rentaly.BusinessLayer.Abstract
 {
-    public interface ICategoryService:IGenericService<Category>
+    public interface ILocationService:IGenericService<Location>
     {
-        Task<List<Category>> TGetCategoriesWithCarsAsync();
     }
 }
